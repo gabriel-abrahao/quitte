@@ -184,10 +184,10 @@ read.quitte <- function(file,
                     }
 
                     if (usedt) {
-                        # data.table::setDT(x)
+                        data.table::setDT(x)
                         x <- x %>%
                             relocate(all_of(default.columns)) %>%
-                            data.table::as.data.table() %>%
+                            # data.table::as.data.table() %>%
                             data.table::melt(measure.vars = periods, variable.name = "period") %>%
                             mutate(
                                 period = gsub("^[A-Za-z]?", "", .data$period),
